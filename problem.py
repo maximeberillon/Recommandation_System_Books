@@ -70,10 +70,11 @@ def get_cv(X, y):
 
 def _read_data(path, f_name):
     data = pd.read_csv(os.path.join(path, 'data', f_name))
-    meta_df=pd.read_csv(os.path.join(path, 'data', 'meta.csv'))
+    meta_data=pd.read_csv(os.path.join(path, 'data', 'meta.csv'))
+    data=data.join(meta_data.set_index('productID'),on='productID')
     y_array = data[_target_column_name].values
     X_df = data.drop([_target_column_name], axis=1)
-    return X_df, y_array,meta_df
+    return X_df, y_array
 
 
 def get_train_data(path='.'):
