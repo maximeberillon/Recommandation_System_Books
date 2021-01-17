@@ -27,10 +27,10 @@ Get started on this RAMP with the [dedicated notebook](https://github.com/maxime
 To test the starting-kit, run on terminal:
 
 ```
-ramp_test_submission --submission starting_kit
+$ ramp_test_submission --submission starting_kit
 ```
 or for a quick version of the test, just run:
 
 ```
-ramp_test_submission --submission starting_kit --quick-test
+$ ramp_test_submission --submission starting_kit --quick-test
 ```
