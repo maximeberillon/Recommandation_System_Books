@@ -43,4 +43,5 @@ class Regressor(BaseEstimator):
                                  self.ratings_array_predicted,
                                  self.mean_ratingScore,
                                  x[0], x[1]) for x in X.values]
-        return y_pred
+        y_pred=np.array(y_pred)
+        return y_pred.reshape((y_pred.shape[0],-1))

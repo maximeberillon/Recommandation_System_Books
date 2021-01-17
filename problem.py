@@ -28,7 +28,7 @@ if(quick_mode):
 _target_column_name = 'ratingScore'
 # A type (class) which will be used to create wrapper objects for y_pred
 Predictions = rw.prediction_types.make_regression(
-    label_names=['ratingScore'])
+    label_names=[_target_column_name])
 # An object implementing the workflow
 workflow = rw.workflows.FeatureExtractorRegressor()
 
@@ -63,17 +63,15 @@ score_types = [RMSE(),MAE()]
 
 def get_cv(X, y):
     cv = ShuffleSplit(n_splits = 4, test_size = 0.2)
-    res = cv.split(X,y)
-    for train_index, test_index in res:
-        pass
-    return res
-
+    return cv.split(X,y)
+    
 
 def _read_data(path, f_name):
     data = pd.read_csv(os.path.join(path, 'data', f_name))
     meta_data=pd.read_csv(os.path.join(path, 'data', 'meta.csv'))
     data=data.join(meta_data.set_index('productID'),on='productID')
     y_array = data[_target_column_name].values
+    y_array = y_array.reshape((y_array.shape[0],-1))
     X_df = data.drop([_target_column_name], axis=1)
     return X_df, y_array
 
