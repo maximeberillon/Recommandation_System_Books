@@ -58,8 +58,8 @@ class Regressor(BaseEstimator):
 
     def fit(self, X, y):
         self.mean_ratingScore = np.mean(y)
-        data = X[['reviewerID', 'productID']]
-        data.loc[:,'ratingScore'] = y
+        data = X.loc[:, ['reviewerID', 'productID']]
+        data['ratingScore'] = y
         self.ratings_matrix = data.pivot_table(values='ratingScore',
                                                index='productID',
                                                columns='reviewerID',
@@ -73,4 +73,5 @@ class Regressor(BaseEstimator):
                                  self.ratings_array_predicted,
                                  self.mean_ratingScore,
                                  x[0], x[1]) for x in X.values]
+        print(y_pred[:10])
         return y_pred
