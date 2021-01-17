@@ -37,7 +37,7 @@ class RMSE(BaseScoreType):
     minimum = 0.0
     maximum = float('inf')
 
-    def __init__(self, name='rmse', precision=2):
+    def __init__(self, name='RMSE', precision=2):
         self.name = name
         self.precision = precision
 
