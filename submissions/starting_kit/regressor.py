@@ -19,36 +19,6 @@ def svd_prediction(matrix, array, mean, u, i):
     return pred
 
 
-# def estimator(X_train, y_train, X_test):
-#    # In case of cold start problem we take the mean reviewScore
-#    mean_ratingScore = np.mean(y_train)
-#
-#    # Preprocessing the data a bit
-#    data = X_train[['reviewerID', 'productID']]
-#    data['ratingScore'] = y_train
-#
-#    # Getting our user-product matrix
-#    ratings_matrix = data.pivot_table(values='ratingScore',
-#                                      index='productID',
-#                                      columns='reviewerID',
-#                                      fill_value=0)
-#    ratings_array = ratings_matrix.values
-#
-#    # Running the SVD on it
-#    imp = IterativeImputer(missing_values=0,
-#                           random_state=0,
-#                           min_value=1,
-#                           max_value=5)
-#    ratings_array_predicted = imp.fit_transform(ratings_array)
-#
-#    # Returning the prediciton
-#    y_pred = [svd_prediction(ratings_matrix,
-#                             ratings_array_predicted,
-#                             mean_ratingScore,
-#                             x[0], x[1]) for x in X_test.values]
-#    return y_pred
-
-
 class Regressor(BaseEstimator):
     def __init__(self):
         self.imp = IterativeImputer(missing_values=0,
