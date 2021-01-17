@@ -73,5 +73,4 @@ class Regressor(BaseEstimator):
                                  self.ratings_array_predicted,
                                  self.mean_ratingScore,
                                  x[0], x[1]) for x in X.values]
-        print(y_pred[:10])
         return y_pred

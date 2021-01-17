@@ -64,7 +64,10 @@ score_types = [RMSE(), MAE()]
 
 def get_cv(X, y):
     cv = ShuffleSplit(n_splits = 4, test_size = 0.2)
-    return cv.split(X, y)
+    res = cv.split(X)
+    for train_index, test_index in res:
+        pass
+    return res
 
 
 def _read_data(path, f_name):
