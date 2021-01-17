@@ -3,11 +3,7 @@
 # Instructions
 Authors: Youssef Brachmi, Théo Dullin, Omar El Mellouki, Lokmen Eltarr, Maxime Berillon
 
-In their article *Beyond Books: The Extended Academic Benefits of Library Use for First-Year College Students*  Soria et al. described how the use of library and most importantly book can have a positive impact on the academic outcomes of college students. Therefore it is crucial to advise them well.
-
-In another study called *A book reading intervention with preschool children who have limited vocabularies: the benefits of regular reading and dialogic reading*, Hargrave et al. focused on a younger generation and conclude in a similar way. They studied the influence of book reading to children who had poor vocabulary skills. These book reading interventions were very conclusive : the children exposes to these sessions rapidly gained vocabulary. This further stresses our point that book are vital for personal developement.
-
-The challenge that is proposed here is to build a book recommander system. Based on information about a list of books and the reviews of some users, the aim is to predict a list of book that a user is the most likely to like i,e, that he would review with a high rating.
+The challenge that is proposed here is to build a book recommander system. Based on information about a list of books and the reviews of some users, the aim is to predict a list of book that a user is the most likely to like i.e. that he would review with a high rating.
 
 #### Set up
 
