@@ -11,7 +11,6 @@ import rampwf as rw
 from sklearn.model_selection import ShuffleSplit
 import numpy as np
 
-from rampwf.score_types.classifier_base import ClassifierBaseScoreType
 from rampwf.score_types.base import BaseScoreType
 
 problem_title = 'Recommendation system for books'
@@ -38,12 +37,12 @@ class RMSE(BaseScoreType):
     minimum = 0.0
     maximum = float('inf')
 
-    def __init__(self, name='RMSE', precision=2):
+    def __init__(self, name='rmse', precision=2):
         self.name = name
         self.precision = precision
 
     def __call__(self, y_true, y_pred):
-        return np.sqrt(np.mean(np.square(y_true[:, 0] - y_pred[:, 0])))
+        return np.sqrt(np.mean(np.square(y_true - y_pred)))
 
 
 class MAE(BaseScoreType):
@@ -56,15 +55,15 @@ class MAE(BaseScoreType):
         self.precision = precision
 
     def __call__(self, y_true, y_pred):
-        return np.mean(np.absolute(y_true[:, 0] - y_pred[:, 0]))
-    
+        return np.mean(np.absolute(y_true - y_pred))
 
-score_types = [RMSE(), MAE()]
+
+score_types = [RMSE(),MAE()]
 
 
 def get_cv(X, y):
     cv = ShuffleSplit(n_splits = 4, test_size = 0.2)
-    res = cv.split(X)
+    res = cv.split(X,y)
     for train_index, test_index in res:
         pass
     return res
