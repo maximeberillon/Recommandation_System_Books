@@ -31,8 +31,7 @@ _target_column_name = 'ratingScore'
 Predictions = rw.prediction_types.make_regression(
     label_names=['ratingScore'])
 # An object implementing the workflow
-workflow = rw.workflows.FeatureExtractorClassifier()
-
+workflow = rw.workflows.FeatureExtractorRegressor()
 
 class RMSE(BaseScoreType):
     is_lower_the_better = True
